@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TacheMVC.Models;
 
 namespace TacheMVC.Controllers
 {
@@ -12,6 +13,18 @@ namespace TacheMVC.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult login (Utilisateur utilisateur)
+        {
+            if (DBconnection.Logutilisateur(utilisateur))
+            {
+                return Content("WELCOME");
+            }
+            else
+            {
+                return Content("ERROR");
+            }
         }
 
         // GET: Utilisateur/Details/5
